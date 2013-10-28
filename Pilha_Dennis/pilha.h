@@ -11,14 +11,15 @@
  typedef struct no No;
 
 //Estrutura da pilha 
-struct pilha {
-  No *primeiro;       //Ponteiro do tipo estrutura No
-};
+	struct pilha{
+	  No *primeiro;       //Ponteiro do tipo estrutura No
+	};
   
 // Iniciar a pilha criando uma cabeça, com o topo apontado para ela
    
-void pilha* iniciar(){
-	pilha* p = (pilha*) malloc(sizeof(pilha));
+pilha* iniciar(void){
+	pilha* p;
+	p= (pilha*) malloc(sizeof(pilha));
 	p->primeiro = 0; //inicializa com zero elementos 
 	return p;        //retorna ponteiro
 }
@@ -33,7 +34,8 @@ int vazia (pilha* p)
 
 No* inicio(No* l, int valor){
 	
-	No *p = (No*) malloc(sizeof(No)); //Novo nó
+	No *p;
+	p= (No*) malloc(sizeof(No)); //Novo nó
 	p->conteudo = valor;
 	p->prox = l;
 	return p; //Retorna o topo da lista
@@ -41,7 +43,8 @@ No* inicio(No* l, int valor){
 
 //Funçao para retirar do começo da lista
 No* retirar(No* l){
-	No *p = l->prox;
+	No *p 
+	p=l->prox;
 	free(l);
 	return p;
 }

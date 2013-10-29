@@ -72,7 +72,7 @@ int desempilhar (pilha *p){
 
 //Função para mostrar os elementos da pilha 
 
-void mostra (pilha *p){
+void mostrar (pilha *p){
 	No *q;  //Nova variavel para armazenar
 	for (q=p->primeiro; q!=NULL; q=q->prox){  //Varre os nós com um contador que vai do primeiro nó até achar um nó cujo proximo seja nulo
 	  printf("%4d\n",q->conteudo);	  //Mostra o valor armazenado em conteudo de cada nó

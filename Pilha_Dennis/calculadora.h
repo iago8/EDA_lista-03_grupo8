@@ -24,7 +24,7 @@ calc *criar(char *expressao){
 void operando (calc* c, int valor){
 
 	empilhar(c->p,valor);
-	mostrar(c->final,valor);  //Mostra topo da pilha
+	mostrar(c->p);  //Mostra topo da pilha
 }
 
 //Função que identifica os operadores
@@ -50,7 +50,7 @@ void operador (calc* c, char op){
 	//Empilhar resultado
 	empilhar(c->p,v);
 	//Mostra topo da pilha
-	mostrar(c->final,v);
+	mostrar(c->p);
 }
 
 //Função que libera a estrutura da calculadora

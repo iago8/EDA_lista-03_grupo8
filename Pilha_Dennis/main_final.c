@@ -44,6 +44,7 @@ do {
 	  operando(calculadora,valor);
 	}
 	printf("\nDeseja calcular outra expressao? 1-Sim 2-Nao\n\n");
+	fflush(stdin);
 	scanf("%d",&op);
 	} while (op!=2);
 	free(calculadora);

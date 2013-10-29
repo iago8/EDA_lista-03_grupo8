@@ -27,7 +27,7 @@ main ()
 char c;
 int valor,op;
 calc *calculadora;
-
+//Cria uma estrutura calculadora
 calculadora = criar("%.4d\n"); //Expressão final será em formato de inteiros
 
 do {
@@ -46,7 +46,7 @@ do {
 	printf("\nDeseja calcular outra expressao? 1-Sim 2-Nao\n\n");
 	scanf("%d",&op);
 	} while (op!=2);
-	liberar(calculadora);
+	free(calculadora);
 	printf("\nFim do programa!\n");
 	return 0;
 }

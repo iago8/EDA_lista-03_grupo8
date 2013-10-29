@@ -6,20 +6,22 @@
    struct no {
 	int conteudo;
 	struct no *prox;
-};
+   };
 //Usando typedef para no virar No
  typedef struct no No;
 
 //Estrutura da pilha 
-	struct pilha{
+	struct pi{
 	  No *primeiro;       //Ponteiro do tipo estrutura No
 	};
+	
+	typedef struct pi pilha;
   
 // Iniciar a pilha criando uma cabeça, com o topo apontado para ela
    
-pilha* iniciar(void){
-	pilha* p;
-	p= (pilha*) malloc(sizeof(pilha));
+void *iniciar(){
+	pilha *p;
+	p=(pilha*) malloc(sizeof(pilha));
 	p->primeiro = 0; //inicializa com zero elementos 
 	return p;        //retorna ponteiro
 }
@@ -27,7 +29,10 @@ pilha* iniciar(void){
 //Funçao para verificar se a pilha está vazia
 int vazia (pilha* p)
 {
-    return (p->primeiro==NULL);
+    if(!p->primeiro){
+    	printf("\nPilha vazia\n");
+    	return 0;
+    }
 }
 
 //Função para inserir no começo da lista
@@ -43,7 +48,7 @@ No* inicio(No* l, int valor){
 
 //Funçao para retirar do começo da lista
 No* retirar(No* l){
-	No *p 
+	No *p; 
 	p=l->prox;
 	free(l);
 	return p;
@@ -84,6 +89,6 @@ void liberar(pilha* p){
 		free(q);          //Libera o topo atual
 		q = t;           //Transforma o proximo no topo
 		}
- free(p);  //libera a pilha
+   free(p);  //libera a pilha
 }
 

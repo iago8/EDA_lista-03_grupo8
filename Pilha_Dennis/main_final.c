@@ -25,25 +25,28 @@ main ()
 {
 	
 char c;
-int valor;
+int valor,op;
 calc *calculadora;
 
 calculadora = criar("%.4d\n"); //Expressão final será em formato de inteiros
 
 do {
        
-    printf("\Digite a expressao\n");
+    printf("\nDigite a expressao\n");
 	scanf(" %c",&c);
 	if (c=='+' || c=='-' || c=='*' || c=='/') {
-	operador(calculadora,c);
+	  operador(calculadora,c);
 	}
-	/* devolve caractere lido e tenta ler número */
+	//devolve caractere lido e tenta ler número 
 	else {
-	ungetc(c,stdin);
-	if (scanf("%d",&valor) == 1)
-	operando(calculadora,valor);
+	  ungetc(c,stdin);
+	  if (scanf("%d",&valor) == 1)
+	  operando(calculadora,valor);
 	}
-	} while (c!='q');
+	printf("\nDeseja calcular outra expressao? 1-Sim 2-Nao\n\n");
+	scanf("%d",&op);
+	} while (op!=2);
 	liberar(calculadora);
+	printf("\nFim do programa!\n");
 	return 0;
 }

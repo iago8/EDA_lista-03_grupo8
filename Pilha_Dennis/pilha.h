@@ -1,5 +1,4 @@
 
-
 //Implementação de uma pilha de uma  Lista encadeada
  
    //Estrutura dos nós
@@ -19,7 +18,7 @@
   
 // Iniciar a pilha criando uma cabeça, com o topo apontado para ela
    
-void *iniciar(){
+pilha *iniciar(){
 	pilha *p;
 	p=(pilha*) malloc(sizeof(pilha));
 	p->primeiro = 0; //inicializa com zero elementos 
@@ -27,7 +26,7 @@ void *iniciar(){
 }
 
 //Funçao para verificar se a pilha está vazia
-int vazia (pilha* p)
+int vazia (pilha *p)
 {
     if(!p->primeiro){
     	printf("\nPilha vazia\n");
@@ -37,7 +36,7 @@ int vazia (pilha* p)
 
 //Função para inserir no começo da lista
 
-No* inicio(No* l, int valor){
+No* inicio(No *l, int valor){
 	
 	No *p;
 	p= (No*) malloc(sizeof(No)); //Novo nó
@@ -47,7 +46,7 @@ No* inicio(No* l, int valor){
 }
 
 //Funçao para retirar do começo da lista
-No* retirar(No* l){
+No* retirar(No *l){
 	No *p; 
 	p=l->prox;
 	free(l);
@@ -55,12 +54,12 @@ No* retirar(No* l){
 }
 
 //Função para empilhar
-void empilhar(pilha* p, int valor){
+void empilhar(pilha *p, int valor){
   p->primeiro = inicio(p->primeiro,valor);
 }
 
 //Funçao para desempilhar
-int desempilhar (pilha* p){
+int desempilhar (pilha *p){
 	int  valor;
 	if (vazia(p)) {
 		 printf("\nPilha vazia\n");
@@ -73,7 +72,7 @@ int desempilhar (pilha* p){
 
 //Função para mostrar os elementos da pilha 
 
-void mostra (pilha* p){
+void mostra (pilha *p){
 	No *q;  //Nova variavel para armazenar
 	for (q=p->primeiro; q!=NULL; q=q->prox){  //Varre os nós com um contador que vai do primeiro nó até achar um nó cujo proximo seja nulo
 	  printf("%4d\n",q->conteudo);	  //Mostra o valor armazenado em conteudo de cada nó
@@ -82,7 +81,7 @@ void mostra (pilha* p){
 }
 
 //Funcão que libera a pilha 
-void liberar(pilha* p){
+void liberar(pilha *p){
 	No *q = p->primeiro; //armazena o end do primeiro elemento
 		while (q!=NULL) {  //Enquanto ele não for nulo
 		No *t = q->prox;  //Outra variavel assime o valor do endereço do proximo nó

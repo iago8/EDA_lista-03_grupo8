@@ -11,9 +11,8 @@ int AvaliaPostFix(char expressao[]){
 	char c, posicao;
 	int op1, op2, valor;
  
- struct pilha nova;
+ pilha nova;
  nova=iniciar();
- nova.primeiro = -1;
  
  for(posicao = 0; (c =expressao[posicao]) != '\0'; posicao++)
     if(c>= '0'&& c <= '9'){
@@ -28,16 +27,10 @@ int AvaliaPostFix(char expressao[]){
 	} 
  
  return(desempilha(&nova));
- liberar(nova);
+ liberar(&nova);
  
 }
-/*/
-//Funcao para verificar o digito
-char VerDigito(char simbolo) 
-{
-  return(simbolo >= '0' && simbolo <= '9');
-}
-/*/
+
 //Função que identifica os operadores
 int operador (int c, int v1,int v2){
 	int v;

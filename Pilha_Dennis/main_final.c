@@ -23,7 +23,7 @@
 #include "calculadora.h"
 
 main ()
-{
+{   
 	char expressao[25];
 	
 	printf("\n\nPrograma para calcular valor de expressao PostFix\n\n\n");

@@ -12,6 +12,7 @@ int AvaliaPostFix(char expressao[]){
 	int op1, op2, valor;
  
  struct pilha nova;
+ nova=iniciar();
  nova.primeiro = -1;
  
  for(posicao = 0; (c =expressao[posicao]) != '\0'; posicao++)

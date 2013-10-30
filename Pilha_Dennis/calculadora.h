@@ -10,7 +10,7 @@ int AvaliaPostFix(char expressao[]){
 
 	char c, posicao;
 	int op1, op2, valor;
- 
+ //Nova variavel do tipo struct pilha
  pilha nova;
  nova=iniciar();
  

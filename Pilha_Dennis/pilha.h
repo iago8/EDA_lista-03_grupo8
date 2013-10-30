@@ -19,7 +19,8 @@
 // Iniciar a pilha criando uma cabeça, com o topo apontado para ela
    
 pilha *iniciar(){
-	pilha *p;
+    
+    pilha *p;
 	p=(pilha*) malloc(sizeof(pilha));
 	p->primeiro =NULL; //inicializa com zero elementos 
 	return p;        //retorna ponteiro

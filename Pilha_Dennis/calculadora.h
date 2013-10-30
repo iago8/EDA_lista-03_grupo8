@@ -4,58 +4,56 @@
 #include "pilha.h"
 
 
-//Estrutura da calculadora
-struct calculadora {
-	char final[21];  //saída dos dados
-	pilha *p; 
-};
+//Funçao AvaliaPostFix
 
-typedef struct calculadora calc;
-//Funçao para criar a calculadora
-calc *criar(char *expressao){
-		calc *c; 
-		c= (calc*) malloc(sizeof(calc));
-		strcpy(c->final,expressao);
-		c->p = iniciar(); //Inicia lista vazia
-		return c;
+int AvaliaPostFix(char expressao[]){
+
+	char c, posicao;
+	int op1, op2, valor;
+ 
+ struct pilha nova;
+ nova.primeiro = -1;
+ 
+ for(posicao = 0; (c =expressao[posicao]) != '\0'; posicao++)
+    if(c>= '0'&& c <= '9'){
+      empilhar(&nova, (int) (c-'\0'));	
+    }
+    
+   else{
+	op2 = desempilha(&nova);
+	op1 = desempilha(&nova);
+	valor = operador(c, op1, op2);
+	empilha(&nova, valor);
+	} 
+ 
+ return(desempilha(&nova));
+ liberar(nova);
+ 
 }
-
-//Função que identifica os operandos
-void operando (calc* c, int valor){
-
-	empilhar(c->p,valor);
-	mostrar(c->p);  //Mostra topo da pilha
+/*/
+//Funcao para verificar o digito
+char VerDigito(char simbolo) 
+{
+  return(simbolo >= '0' && simbolo <= '9');
 }
-
+/*/
 //Função que identifica os operadores
-void operador (calc* c, char op){
-	int v1, v2, v;
-	//desempilha operandos
-	if (vazia(c->p))
-	  v2 = 0;
-	else
-	  v2 = desempilhar(c->p);
-	if (vazia(c->p))
-	  v1 = 0;
-	else
-	  v1 = desempilhar(c->p);
-	
+int operador (int c, int v1,int v2){
+	int v;
 	//Lendo as opções
-	switch (op) {
+	switch (c) {
 		case '+': v = v1+v2; break;
 		case '-': v = v1-v2; break;
 		case '*': v = v1*v2; break;
 		case '/': v = v1/v2; break;
+		default:{
+		  printf("\nArgumento Invalido!\n");
+		  exit(1);
+		}
+		
+		
 	}
-	//Empilhar resultado
-	empilhar(c->p,v);
-	//Mostra topo da pilha
-	mostrar(c->p);
+  return (v);
 }
 
-//Função que libera a estrutura da calculadora
-void libCalc(calc* c)
-{
-	liberar(c->p);
-	free(c);
-}
+

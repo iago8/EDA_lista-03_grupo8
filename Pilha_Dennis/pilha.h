@@ -21,7 +21,7 @@
 pilha *iniciar(){
 	pilha *p;
 	p=(pilha*) malloc(sizeof(pilha));
-	p->primeiro = 0; //inicializa com zero elementos 
+	p->primeiro =NULL; //inicializa com zero elementos 
 	return p;        //retorna ponteiro
 }
 
@@ -42,7 +42,7 @@ No* inicio(No *l, int valor){
 	p= (No*) malloc(sizeof(No)); //Novo nó
 	p->conteudo = valor;
 	p->prox = l;
-	return p; //Retorna o topo da lista
+	return p; //Retorna o topo da lista novo
 }
 
 //Funçao para retirar do começo da lista
@@ -69,7 +69,6 @@ int desempilhar (pilha *p){
 	p->primeiro = retirar(p->primeiro);
 	return valor;
 }
-
 //Função para mostrar os elementos da pilha 
 
 void mostrar (pilha *p){

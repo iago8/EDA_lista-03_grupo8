@@ -1,3 +1,4 @@
+
 /*
  * Programa para ler uma expressao aritmetica em notacao postfix, e 
  fornecer o resultado da expressao.
@@ -23,31 +24,13 @@
 
 main ()
 {
+	char expressao[25];
 	
-char c;
-int valor,op;
-calc *calculadora;
-//Cria uma estrutura calculadora
-calculadora = criar("%.4d\n"); //Expressão final será em formato de inteiros
-
-do {
-       
-    printf("\nDigite a expressao\n");
-	scanf(" %c",&c);
-	if (c=='+' || c=='-' || c=='*' || c=='/') {
-	  operador(calculadora,c);
-	}
-	//devolve caractere lido e tenta ler número 
-	else {
-	  ungetc(c,stdin);
-	  if (scanf("%d",&valor) == 1)
-	  operando(calculadora,valor);
-	}
-	printf("\nDeseja calcular outra expressao? 1-Sim 2-Nao\n\n");
-	fflush(stdin);
-	scanf("%d",&op);
-	} while (op!=2);
-	free(calculadora);
+	printf("\n\nPrograma para calcular valor de expressao PostFix\n\n\n");
+	printf("\nDigite a expressao:\n\n");
+	scanf("%c",&expressao);
+	printf("\nO valor da expressao:\n\n");
+	printf("%4d\n\n",AvaliaPostFix(expressao));
 	printf("\nFim do programa!\n");
 	return 0;
 }
